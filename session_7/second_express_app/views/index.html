@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+
+        .wrapper{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        #short-name{
+
+        }
+        #btn{
+
+        }
+        #player-name{
+
+        }
+        #player-img{
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input id="short-name" type="text" placeholder="Te vendoset emri i lojtarit">
+        <br>
+        <button id="btn">Search</button>
+        <h2 id="full-name"></h2>
+        <h3 id="age"></h3>
+        <img id="player-img" src="" alt="Fotoja e lojtarit">
+    </div>
+
+    <script>
+        const btn = document.querySelector("#btn");
+        
+        const fullName = document.querySelector("#full-name");
+        const age = document.querySelector("#age");
+        const img = document.querySelector("#player-img");
+
+        btn.addEventListener("click", makeReq);
+
+        async function makeReq(){
+            const shortName = document.querySelector("#short-name").value;
+            const res = await fetch(`/${shortName}`)
+            const data = await res.json();
+
+            console.log(data);
+
+            fullName.textContent = data.fullName
+            age.textContent = data.age;
+            img.src = data.imgUrl;
+        }
+    </script>
+</body>
+</html>
