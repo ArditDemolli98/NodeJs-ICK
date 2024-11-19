@@ -49,7 +49,7 @@
 
         async function makeReq(){
             const shortName = document.querySelector("#short-name").value;
-            const res = await fetch(`/${shortName}`)
+            const res = await fetch(`/api/${shortName}`)
             const data = await res.json();
 
             console.log(data);

@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "views", "index.html"));
 })
 
-app.get("/:playerName", (req, res) => {
+app.get("/api/:playerName", (req, res) => {
     const shortName = req.params.playerName;
 
     console.log(shortName);
