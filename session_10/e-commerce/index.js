@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb+srv://arditdemolli98:ardit@cluster0.h79vp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("<put database connection string here>")
 .then(result => {
     console.log("Connected to the database");
 })
