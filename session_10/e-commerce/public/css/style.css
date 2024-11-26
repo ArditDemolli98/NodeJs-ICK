@@ -1,0 +1,15 @@
+body {
+    background-color: antiquewhite;
+}
+
+.products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.products-wrapper article {
+    flex-basis: calc(33% - 22px);
+    border: 1px solid;
+    text-align: center;
+}

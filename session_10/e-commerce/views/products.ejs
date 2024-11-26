@@ -1,0 +1,19 @@
+<%- include("./partials/head") %>
+</head>
+<body>
+   <%- include("./partials/navigation") %>
+    <main>
+        <h1 class="<%= true ? "red" : "black" %>">All Products</h1>
+        <div class="products-wrapper">
+        <% for(let i = 0; i < products.length; i++) { %>
+            <article>
+                <div class="product-name"><%= products[i].name %></div>
+                <div class="product-description"><%= products[i].description %></div>
+                <div class="product-price"><%= products[i].price %></div>
+            </article>
+            <br>
+        <% } %>
+        </div>
+    </main>
+</body>
+</html>
