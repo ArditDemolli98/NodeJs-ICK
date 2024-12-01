@@ -1,4 +1,3 @@
-const {products} = require(".//adminController")
 const Product = require("../models/Product");
 
 const personInfo = {
@@ -18,10 +17,21 @@ const getAbout = (req, res) => {
 const getProducts = (req, res)=>{
     Product.find()
     .then(products => {
-        console.log(products);
         res.render("products.ejs", {products, pageTitle: "Products"});
     })
     .catch(err => console.log(err))
 }
 
-module.exports = {getHome, getAbout, getProducts}
+const getProductDetails = (req, res) => {
+    const id = req.params.id;
+
+    Product.findById(id)
+    .then(product => {
+        res.render("product-details", {pageTitle: "Product details", product});
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+module.exports = { getHome, getAbout, getProducts, getProductDetails }

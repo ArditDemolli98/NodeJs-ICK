@@ -8,4 +8,6 @@ router.get("/about", mainController.getAbout)
 
 router.get("/products", mainController.getProducts)
 
+router.get("/products/:id", mainController.getProductDetails)
+
 module.exports = router;
