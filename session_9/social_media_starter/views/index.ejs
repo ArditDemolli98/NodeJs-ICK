@@ -10,21 +10,21 @@
   <body>
     <div id="nav">
       <div id="nav-left">
-        <img id="nav-logo" src="/images/logo.png" />
+        <img id="nav-logo" src="<%= data.logo.image %>" />
         <h2 id="nav-name">Spacepark</h2>
       </div>
       <div id="nav-right">
         <input type="text" placeholder="Search" />
         <button>+ Create</button>
-        <img src="/images/person.jpeg" />
+        <img src="<%= data.myUser.profilePicture %>" />
       </div>
     </div>
     <div id="left">
       <div class="profile-info">
-        <img src="/images/person.jpeg" />
+        <img src="<%= data.myUser.profilePicture %>" />
         <div class="profile-info-right">
-          <h3>Alexandra Borke</h3>
-          <h4>@alexsunshine</h4>
+          <h3><%= data.myUser.fullName %></h3>
+          <h4><%= data.myUser.username %></h4>
         </div>
       </div>
       <div class="list">
@@ -56,43 +56,51 @@
       <div class="invitations-container">
         <div class="invitations-top">
           <label>INVITATIONS</label>
-          <span>4</span>
+          <span><%= data.invitations.length%></span>
         </div>
         <div class="invitations">
-
+          <% for (let i = 0; i < data.invitations.length; i++) { %>
           <div class="invitation">
-            <img src="/images/person.jpeg" />
+            <img src="<%= data.invitations[i].image %>" />
             <div class="invitation-bottom">
               <button class="invitation-accept">Accept Invitation</button>
               <button class="invitation-decline">X</button>
             </div>
           </div>
-
+          <% } %>
         </div>
       </div>
     </div>
     <div id="center">
       <div class="stories">
-
-        <div class="story" style="background-image: url('/images/person.jpeg')">
-          <label>John Doe</label>
+        <% for (let i = 0; i < data.stories.length; i++) { %>
+        <div
+          class="story"
+          style="background-image: url('<%= data.stories[i].thumbnail %>')"
+        >
+          <label><%= data.stories[i].user %></label>
         </div>
-        
+        <% } %>
       </div>
       <div class="new-post-form">
-        <img src="/images/person.jpeg" />
-        <input type="text" placeholder="What's new, Alexandra?" />
+        <img src="<%= data.myUser.profilePicture %>" />
+        <input
+          type="text"
+          placeholder="What's new, <%= data.myUser.fullName %>?"
+        />
         <button>Post it!</button>
       </div>
       <div class="post">
+        <% for (let i = 0; i < data.posts.length; i++) { %>
         <div class="post-top">
-          <img src="/images/person.jpeg" />
+          <img src="<%= data.posts[i].image %>" />
           <div class="post-info">
-            <label class="post-poster">Laura Fisher</label>
-            <label class="post-time">12 hours ago</label>
+            <label class="post-poster"><%= data.posts[i].name %></label>
+            <label class="post-time"><%= data.posts[i].time %></label>
           </div>
           <button class="post-more">...</button>
         </div>
+
         <div class="post-bottom">
           <div class="post-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
@@ -101,42 +109,54 @@
             necessitatibus aliquam facilis aperiam.
           </div>
           <div class="post-images">
-            <div style="background-image: url('/images/nature_1.jpeg')"></div>
-            <div style="background-image: url('/images/nature_2.jpeg')"></div>
+            <% for (let j = 0; j < data.posts[i].pictures.length; j++) { %>
+            <div
+              style="background-image: url('<%= data.posts[i].pictures[j] %>')"
+            ></div>
+            <% } %>
           </div>
         </div>
+        <% } %>
       </div>
     </div>
     <div id="right">
       <div class="requests">
         <div class="requests-top">
           <label>REQUESTS</label>
-          <span>2</span>
+          <span><%= data.requests.length %></span>
         </div>
+
         <div class="requests-bottom">
+          <% for (let i = 0; i < data.requests.length; i++) { %>
           <div class="request">
             <div class="request-top">
-              <img src="/images/person.jpeg" />
-              <label><strong>Will Pharell</strong> wants to follow you! </label>
+              <img src="<%= data.requests[i].image %>" />
+              <label
+                ><strong><%= data.requests[i].name %></strong> wants to follow
+                you!
+              </label>
             </div>
             <div class="request-bottom">
               <button>Accept</button>
               <button class="decline">Decline</button>
             </div>
           </div>
+          <% } %>
         </div>
       </div>
       <div class="contacts">
         <div class="contacts-top">
           <label>Contacts</label>
-          <span>68</span>
+          <span><%= data.contacts.length %></span>
         </div>
         <div class="contacts-bottom">
+          <% for (let i = 0; i < data.contacts.length; i++) { %>
           <div class="contact">
-            <img src="/images/person.jpeg" />
-            <label>John Doe</label>
+            <img src="<%= data.contacts[i].image %>" />
+            <label><%= data.contacts[i].name %></label>
             <span>...</span>
           </div>
+          <% } %>
         </div>
       </div>
     </div>
