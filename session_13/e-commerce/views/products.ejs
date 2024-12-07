@@ -1,0 +1,36 @@
+<%- include("./partials/head") %>
+    </head>
+
+    <body>
+        <%- include("./partials/navigation") %>
+            <main>
+                <h1 class="<%= true ? " red" : "black" %>">All Products</h1>
+                <div class="products-wrapper">
+                    <% for(let i=0; i < products.length; i++) { %>
+                        <a href="/products/<%= products[i]._id %>">
+                            <article>
+                                <div class="product-name">
+                                    <%= products[i].name %>
+                                </div>
+                                <div class="product-description">
+                                    <%= products[i].description %>
+                                </div>
+                                <div class="product-price">
+                                    <%= products[i].price %>
+                                </div>
+                                <div class="actions-wrapper">
+                                    <a href="/admin/edit-product/<%= products[i]._id %>" class="edit">Edit</a>
+                                    <form style="width:fit-content" action="/admin/delete-product" method="POST">
+                                        <input type="hidden" name="prodId" value="<%= products[i]._id %>">
+                                        <button class="delete" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </article>
+                        </a>
+                        
+                        <% } %>
+                </div>
+            </main>
+    </body>
+
+    </html>
