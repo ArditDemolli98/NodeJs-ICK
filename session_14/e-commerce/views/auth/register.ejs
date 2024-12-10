@@ -1,0 +1,21 @@
+<%- include("../partials/head") %>
+</head>
+<body>
+   <%- include("../partials/navigation") %>
+    <main>
+        <form action="/register" method="POST">
+            <label for="prod-name">Username:</label>
+            <input type="text" placeholder="Username..." name="username">
+            <br>
+            <label for="prod-name">Email:</label>
+            <input type="email" placeholder="Email..." name="email">
+            <br>
+            <label for="prod-desc">Password:</label>
+            <input type="password" placeholder="Password..." name="password">
+            <br>
+            <button type="submit">Register</button>
+            <%= error %>
+        </form>
+    </main>
+</body>
+</html>
