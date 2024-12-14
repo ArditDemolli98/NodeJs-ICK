@@ -1,0 +1,17 @@
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <% if(!isAuthenticated) { %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            <% } else { %>
+                <li><a href="/admin/add-product">Add Product</a></li>
+                <li><a href="/admin/my-products">My products</a></li>
+                <form action="/logout" method="post"><button type="submit">Logout</button></form>
+            <% } %>
+        </ul>
+    </nav>
+</header>
