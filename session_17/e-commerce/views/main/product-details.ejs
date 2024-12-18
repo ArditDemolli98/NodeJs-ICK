@@ -1,0 +1,25 @@
+<%- include("../partials/head") %>
+    </head>
+
+    <body>
+        <%- include("../partials/navigation") %>
+            <main>
+                <h1 class="<%= true ? " red" : "black" %>">Product details</h1>
+                <div class="products-wrapper">
+                    <article>
+                        <div class="product-name">
+                            <%= product.name %>
+                        </div>
+                        <div class="product-description">
+                            <%= product.description %>
+                        </div>
+                        <div class="product-price">
+                            <%= product.price %>
+                        </div>
+                        <img width="300px" src="/<%= product.imagePath %>" alt="<%= product.name %>">
+                    </article>
+                </div>
+            </main>
+    </body>
+
+    </html>
